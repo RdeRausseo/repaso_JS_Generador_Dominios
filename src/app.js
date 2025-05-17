@@ -8,18 +8,24 @@ import "./assets/img/4geeks.ico";
 window.onload = function () {
   //write your code here
 
-  function generateExcuse() {
-    let who = ['The dog', 'My grandma', 'The mailman', 'My bird'];
-    let action = ['ate', 'peed', 'crushed', 'broke'];
-    let what = ['my homework', 'my phone', 'the car'];
-    let when = ['before the class', 'when I was sleeping', 'while I was exercising', 'during my lunch', 'while I was praying'];
-    let excusa = document.getElementById("excusa")
+  function generatorExcuses(){
+    let pronoun = ['the', 'our'];
+    let adj = ['great', 'big'];
+    let noun = ['jogger', 'racoon'];
+    let allDomains = []; 
+    const addDomains = (pronoun, adj, noun) => ( allDomains[allDomains.length] = {pronoun, adj, noun})
 
-    excusa.innerHTML = who[Math.floor(Math.random() * who.length)] + " " + action[Math.floor(Math.random() * action.length)] + " " + 
-                      what[Math.floor(Math.random() * what.length)] + " " + when[Math.floor(Math.random() * when.length)]
+    for (let index1 = 0; index1 < pronoun.length; index1++) {
+        for (let index2 = 0; index2 < adj.length; index2++) {
+          for (let index3 = 0; index3 < noun.length; index3++) {
+            addDomains(pronoun[index1], adj[index2], noun[index3])
+          }
+        }  
+    }
 
-    return excusa; 
+    console.log(allDomains)
+    return allDomains; 
   }
-  generateExcuse(); 
+  generatorExcuses(); 
 
 };
